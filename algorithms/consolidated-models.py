@@ -9,7 +9,7 @@ class ConsolidatedModels:
         self.close_prices = self.data.iloc[:,1::2]
 
         self.tickers = list(set([x.split('_')[0] for x in self.data.columns]))
-        self.caps = pd.read_csv('marketcapdata.csv', index_col='Name').to_dict()['Market Cap']
+        self.caps = pd.read_csv('../training_data/marketcapdata.csv', index_col='Name').to_dict()['Market Cap']
 
         # Probabilities #
         initial_weights = self.init_weights(tickers=self.tickers, weight_init='marketcap')
